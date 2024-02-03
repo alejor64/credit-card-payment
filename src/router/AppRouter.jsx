@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import CatalogPage from '../catalog/presentation/pages/catalog/CatalogPage';
 import PaymentPage from '../payments/presentation/pages/PaymentPage';
 import { Navbar } from '../ui/components/Navbar';
+import CatalogPage from '../catalog/presentation/pages/catalog/CatalogPage';
 
 const AppRouter = () => {
   return (
