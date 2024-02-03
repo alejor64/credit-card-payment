@@ -1,18 +1,17 @@
 import React from 'react';
 import './ProductCard.scss';
-
-const TextInfo = ({label, text}) => {
-  return (
-    <div className='text-info-container'>
-      <label className='title'>{label}: </label>
-      <p className='text'>{text}</p>
-    </div>
-  )
-};
+import { useNavigate } from 'react-router-dom';
+import { TextInfo } from '../../../../shared/presentation/components/TextInfo/TextInfo';
 
 const ProductCard = ({product}) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/products/${product.slug}`)
+  }
+
   return (
-    <div key={product.slug} className='product-card'>
+    <div key={product.slug} className='product-card' onClick={handleClick}>
       <img src={product.img} alt={product.name} className='image-product' />
       <div className='product-info'>
         <TextInfo label={'Description'} text={product.descriptions} />
