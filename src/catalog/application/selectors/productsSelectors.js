@@ -2,6 +2,4 @@ import { createSelector } from "@reduxjs/toolkit";
 
 const productsState = (state) => state.products;
 
-export const selectProducts = createSelector(productsState, (state) => {
-  return state;
-})
+export const selectProducts = createSelector(productsState, state => state)

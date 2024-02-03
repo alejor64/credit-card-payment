@@ -8,7 +8,7 @@ const initialState = [
     size: ['s', 'm', 'l', 'xl'],
     gender: ['male', 'female', 'kids'],
     descriptions: 'Beatufil shirts',
-    slug: 'shits',
+    slug: 'shirts',
     price: 250
   },
   {
@@ -49,7 +49,7 @@ export const ProductsSlice = createSlice({
   reducers: {
     updateStoke: (state, {payload}) => {
       state = state.map(product => {
-        if(product.id === payload.id) {
+        if(product.slug === payload.slug) {
           product.stoke = payload.stoke
         }
         return product;
