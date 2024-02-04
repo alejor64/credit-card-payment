@@ -1,57 +1,77 @@
 @import '../../../../shared/application/theme/colors.scss';
+@import '../../../../shared/application/theme/contants.scss';
 
-.form-section {
-  .form-container {
-    width: 60%;
-    margin: auto;
-    padding: 30px;
-    margin-top: 20px;
-    .form {
-      .form-section {
-        border-radius: 20px;
-        box-shadow: 0px 0px 6px $black;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        .title-section {
+.form-container {
+  width: 60%;
+  margin: auto;
+  padding: 30px;
+  margin-top: 20px;
+  .form {
+    .form-section {
+      border-radius: 20px;
+      box-shadow: 0px 0px 6px $black;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      .title-section {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        padding: 20px 0px;
+      }
+      &.card-info {
+        .image-container {
+          display: flex;
+          justify-content: center;
           width: 50%;
           margin: auto;
-          text-align: center;
-          padding: 20px 0px;
-        }
-        &.card-info {
-          .image-container {
-            display: flex;
-            justify-content: center;
-            width: 50%;
-            margin: auto;
-            img {
-              width: 200px;
-            }
+          img {
+            width: 200px;
           }
         }
+      }
+      .double-input {
+        margin: auto;
+        width: 50%;
+        display: flex;
+        gap: 10px;
+      }
+    }
+    .btn-validate {
+      width: 50%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      .btn {
+        padding: 10px;
+        width: 120px;
+        background: $white;
+        border: 1px solid darken($primary, 10);
+        border-radius: 7px;
+        box-shadow: 0px 0px 1px black;
+        &:hover {
+          cursor: pointer;
+          background: $primary;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $max-screen-widht) {
+  .form-container {
+    width: 90%;
+    padding: 0px;
+    .form {
+      .form-section {
         .double-input {
-          margin: auto;
-          width: 50%;
-          display: flex;
-          gap: 10px;
+          width: 80%;
         }
       }
       .btn-validate {
-        width: 50%;
-        margin: auto;
-        display: flex;
-        justify-content: center;
         .btn {
-          padding: 10px;
-          width: 120px;
-          background: $white;
-          border: 1px solid darken($primary, 10);
-          border-radius: 7px;
-          box-shadow: 0px 0px 1px black;
-          &:hover {
-            cursor: pointer;
-            background: $primary;
-          }
+          width: 150px;
+          padding: 12px;
+          font-size: 16px;
         }
       }
     }

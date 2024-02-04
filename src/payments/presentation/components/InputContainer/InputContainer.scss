@@ -1,4 +1,5 @@
 @import '../../../../shared/application/theme/colors.scss';
+@import '../../../../shared/application/theme/contants.scss';
 
 .input-contianer {
   display: flex;
@@ -21,5 +22,11 @@
       color: $text-color-error;
       font-size: 13px;
     }
+  }
+}
+
+@media (max-width: $max-screen-widht) {
+  .input-contianer {
+    width: 80%;
   }
 }

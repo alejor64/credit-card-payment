@@ -1,3 +1,5 @@
+@import '../../../../shared/application/theme/contants.scss';
+
 .products-container {
   max-width: 90%;
   margin: 20px auto;
@@ -7,8 +9,8 @@
   gap: 40px;
 }
 
-@media screen and (max-width: 768px) {
-  .producst-container {
+@media (max-width: $max-screen-widht) {
+  .products-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }

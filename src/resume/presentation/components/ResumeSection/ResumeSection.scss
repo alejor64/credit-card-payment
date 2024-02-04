@@ -1,3 +1,6 @@
+@import '../../../../shared/application/theme/colors.scss';
+@import '../../../../shared/application/theme/contants.scss';
+
 .resume-section {
   display: flex;
   width: 90%;
@@ -8,5 +11,16 @@
     display: flex;
     flex-direction: column;
     gap: 0;
+  }
+}
+
+@media (max-width: $max-screen-widht) {
+  .resume-section {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .products-container {
+      width: 100%;
+    }
   }
 }
