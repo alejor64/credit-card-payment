@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectedProducts } from '../../../product/application/selectors/productsSelectedSelectors';
 import Select from '../../../shared/presentation/components/Select/Select';
 import { PAYMENT_METHOD_OPTIONS } from '../../application/constants';
 import CardForm from '../components/CardForm/CardForm';
 
 const PaymentPage = () => {
-  const productsToBuy = useSelector(selectedProducts);
   const [paymentMethod, setpaymentMethod] = useState('');
 
   const onChageSelect = (e) => {

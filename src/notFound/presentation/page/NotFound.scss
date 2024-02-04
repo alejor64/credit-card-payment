@@ -1,0 +1,28 @@
+@import '../../../shared/application/theme/colors.scss';
+
+.not-found-container {
+  text-align: center;
+  margin: 50px;
+  h1 {
+    font-size: 3em;
+  }
+  
+  p {
+    font-size: 1.2em;
+    color: #888888;
+  }
+  .btn-section {
+    button { 
+      height: 40px;
+      width: 150px;
+      border-radius: 4px;
+      background: $primary;
+      border: 1px solid darken($color: $primary, $amount: 7);
+      &:hover {
+        background: darken($color: $primary, $amount: 5);
+        cursor: pointer;
+        color: $text-color-secondary;
+      }
+    }
+  }
+}
