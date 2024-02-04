@@ -5,7 +5,9 @@ import { selectProducts } from '../../../../catalog/application/selectors/produc
 import './productPage.scss';
 import { TextInfo } from '../../../../shared/presentation/components/TextInfo/TextInfo';
 import { selectedProducts } from '../../../application/selectors/productsSelectedSelectors';
-import { addProduct, removeProduct } from '../../../application/slices/productSlice';
+import { addProduct } from '../../../application/slices/productSlice';
+import { getValueFromLocalStorage, setValueToLocalStorage } from '../../../../shared/helpers/helpers';
+import { PRODUCT_SELECTED } from '../../../../shared/helpers/constants';
 
 const ShowList = ({list, title, className = ''}) => {
   return (
@@ -54,11 +56,13 @@ const ProductPage = () => {
 
   const addItem = () => {
     dispatch(addProduct(productSelected));
+    const productsInLS = getValueFromLocalStorage(PRODUCT_SELECTED) || [];
+    setValueToLocalStorage(PRODUCT_SELECTED, JSON.stringify([...productsInLS, productSelected]));
   };
-  
-  const removeItem = () => {
-    dispatch(removeProduct(productSelected));
-  };
+
+  const goPurchase = () => {
+    navigate('/resume');
+  }
 
   return (
     <div className='product-container'>
@@ -70,15 +74,16 @@ const ProductPage = () => {
           <h3>{productSelected.name}</h3>
           <TextInfo label={'Price'} text={`$${productSelected.price}`} />
           <ShowList list={productSelected.gender} title={'Gender'} className={'gender'} />
-          <TextInfo label={'Description'} text={productSelected.descriptions} />
+          <TextInfo label={'Description'} text={productSelected.description} />
+          <TextInfo label={'Stoke'} text={productSelected.stoke ? 'Available' : 'No available'} />
         </div>
         <div className='btn-section'>
-          <button className='back' onClick={goBack}>Go back</button>
+          <button className='back' onClick={goBack}>Go to products</button>
           
           {
             showRemoveBtn
-            ? <button className='remove' onClick={removeItem} >Remove item</button>
-            : <button className='buy' onClick={addItem} >Buy item</button>
+            ? <button className='purchase' onClick={goPurchase} >Go to purchase</button>
+            : <button className='buy' onClick={addItem} >Add item</button>
           }
         </div>
       </div>

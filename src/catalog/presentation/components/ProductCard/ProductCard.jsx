@@ -14,7 +14,7 @@ const ProductCard = ({product}) => {
     <div key={product.slug} className='product-card' onClick={handleClick}>
       <img src={product.img} alt={product.name} className='image-product' />
       <div className='product-info'>
-        <TextInfo label={'Description'} text={product.descriptions} />
+        <TextInfo label={'Description'} text={product.description} />
         <TextInfo label={'Stoke'} text={product.stoke} />
         <TextInfo label={'Price'} text={`$${product.price}`} />
         <div className='size-container'>

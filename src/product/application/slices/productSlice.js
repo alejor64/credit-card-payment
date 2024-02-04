@@ -8,9 +8,6 @@ export const ProductSlice = createSlice({
   reducers: {
     addProduct: (state, {payload}) => {
       state = state.push(payload);
-    },
-    removeProduct: (state, {payload}) => {
-      state = state.filter(itm => itm?.slug !== payload.slug);
     }
   }
 });

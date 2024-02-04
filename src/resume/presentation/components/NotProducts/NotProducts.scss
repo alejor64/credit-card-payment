@@ -1,0 +1,17 @@
+.not-fount-contianer {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  .text-info {
+    .btn {
+      padding: 10px;
+      background: #385fdc;
+      color: #fff;
+      &:hover {
+        background: darken($color: #385fdc, $amount: 20);
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,6 +1,13 @@
 .product-container {
   display: flex;
   gap: 20px;
+  .img-container {
+    max-height: 400px;
+    max-width: 400px;
+    img {
+      width: 100%;
+    }
+  }
   .info-container {
     display: flex;
     flex-direction: column;
@@ -43,7 +50,7 @@
         width: 150px;
         border-radius: 4px;
         border: 1px solid black;
-        &.back, &.remove {
+        &.back {
           background: #fff;
           &:hover {
             background: darken($color: #fff, $amount: 7);
@@ -54,6 +61,14 @@
           background: #385fdc;
           &:hover {
             background: darken($color: #385fdc, $amount: 5);
+            cursor: pointer;
+            color: #fff;
+          }
+        }
+        &.purchase {
+          background: #38dc6f;
+          &:hover {
+            background: darken($color: #38dc6f, $amount: 5);
             cursor: pointer;
             color: #fff;
           }
