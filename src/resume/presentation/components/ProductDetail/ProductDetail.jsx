@@ -2,22 +2,21 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import RemoveProduct from '../RemoveProduct/RemoveProduct';
 import './ProductDetail.scss';
+import { productRoute } from '../../../../product/infrastructure/routes';
 
 const ProductDetail = ({product}) => {
   const navigate = useNavigate();
 
-  const goProduct = () => {
-    navigate(`/products/${slug}`);
-  };
+  const goProduct = () => navigate(productRoute(product.slug));
 
   return (
     <div className='product-section'>
-      <div className='product-info'>
+      <div className='product-info' onClick={goProduct}>
         <div className='img-container'>
           <img src={product.img} />
         </div>
         <div className='text-info'>
-          <h4 className='name' onClick={goProduct}>{product.name}</h4>
+          <h4 className='name'>{product.name}</h4>
           <p className='info'>{product.description}</p>
         </div>
       </div>

@@ -3,13 +3,12 @@ import './ProductCard.scss';
 import { useNavigate } from 'react-router-dom';
 import { TextInfo } from '../../../../shared/presentation/components/TextInfo/TextInfo';
 import ShowList from '../../../../shared/presentation/components/ShowList/ShowList';
+import { productRoute } from '../../../../product/infrastructure/routes';
 
 const ProductCard = ({product}) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`/products/${product.slug}`)
-  }
+  const handleClick = () => navigate(productRoute(product.slug));
 
   return (
     <div key={product.slug} className='product-card' onClick={handleClick}>

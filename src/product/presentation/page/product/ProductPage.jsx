@@ -9,6 +9,8 @@ import { addProduct, setProducts } from '../../../application/slices/productSlic
 import { getValueFromLocalStorage, setValueToLocalStorage } from '../../../../shared/helpers/helpers';
 import { PRODUCT_SELECTED } from '../../../../shared/helpers/constants';
 import ShowList from '../../../../shared/presentation/components/ShowList/ShowList';
+import { resumeRoute } from '../../../../resume/infrastruture/routes';
+import { productsRoute } from '../../../../catalog/infrastructure/routes';
 
 const ProductPage = () => {
   const [productSelected, setProductSelected] = useState({});
@@ -24,7 +26,7 @@ const ProductPage = () => {
     if(slug){
       const product = products.find(product => product.slug === slug);
       if(!product?.name) {
-        navigate(`/products`);
+        navigate(productsRoute);
       }
       setProductSelected(product);
     }
@@ -40,18 +42,12 @@ const ProductPage = () => {
     setPurchaseBtn(!!productSelected);
   }, [slug, productsToBuy, setPurchaseBtn])
 
-  const goBack = () => {
-    navigate(`/products`);
-  };
-
   const addItem = () => {
     dispatch(addProduct(productSelected));
     setValueToLocalStorage(PRODUCT_SELECTED, JSON.stringify([...productsInLS, productSelected]));
   };
 
-  const goPurchase = () => {
-    navigate('/resume');
-  }
+  const navigateTo = (route) => navigate(route);
 
   return (
     <div className='product-container'>
@@ -67,11 +63,11 @@ const ProductPage = () => {
           <TextInfo label={'Stoke'} text={productSelected.stoke ? 'Available' : 'No available'} />
         </div>
         <div className='btn-section'>
-          <button className='back' onClick={goBack}>Go to products</button>
+          <button className='back' onClick={() => navigateTo(productsRoute)}>Go to products</button>
           
           {
             purchaseBtn
-            ? <button className='purchase' onClick={goPurchase} >Go to purchase</button>
+            ? <button className='purchase' onClick={() => navigateTo(resumeRoute)} >Go to purchase</button>
             : <button className='buy' onClick={addItem} >Add item</button>
           }
         </div>
