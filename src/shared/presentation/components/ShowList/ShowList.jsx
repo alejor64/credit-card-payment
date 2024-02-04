@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ShowList.scss';
 
 const ShowList = ({list, title, className = ''}) => {
@@ -16,6 +17,16 @@ const ShowList = ({list, title, className = ''}) => {
       </div>
     </div>
   )
+};
+
+ShowList.propTypes = {
+  list: PropTypes.array,
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+ShowList.defaultProps = {
+  className: '',
 };
 
 export default ShowList;

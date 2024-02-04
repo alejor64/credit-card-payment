@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './TotalSection.scss';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { productsRoute } from '../../../../catalog/infrastructure/routes';
 import { paymentRoute } from '../../../../payments/infrastructure/routes';
+import './TotalSection.scss';
 
 const TotalSection = ({products}) => {
   const [price, setPrice] = useState(0);
@@ -26,6 +27,10 @@ const TotalSection = ({products}) => {
       </div>
     </div>
   )
+};
+
+TotalSection.propTypes = {
+  product: PropTypes.array,
 };
 
 export default TotalSection;

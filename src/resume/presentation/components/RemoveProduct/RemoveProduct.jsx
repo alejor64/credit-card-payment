@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { setProducts } from '../../../../product/application/slices/productSlice';
 import './RemoveProduct.scss';
 import { setValueToLocalStorage } from '../../../../shared/helpers/helpers';
@@ -24,5 +25,12 @@ const RemoveProduct = ({product}) => {
     </div>
   )
 };
+
+RemoveProduct.propTypes = {
+  product: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+  }),
+};
+
 
 export default RemoveProduct;

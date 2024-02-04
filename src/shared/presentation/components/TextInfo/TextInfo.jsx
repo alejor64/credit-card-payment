@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const TextInfo = ({label = '', text}) => {
+const TextInfo = ({label = '', text}) => {
   return (
     <div className='text-info-container'>
       {
@@ -10,3 +11,17 @@ export const TextInfo = ({label = '', text}) => {
     </div>
   )
 };
+
+TextInfo.propTypes = {
+  label: PropTypes.string,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+};
+
+TextInfo.defaultProps = {
+  label: '',
+};
+
+export default TextInfo;

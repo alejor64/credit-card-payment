@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const paymentState = (state) => state.products;
+const paymentState = (state) => state.formData;
 
-export const selectFormData = createSelector(paymentState, state => state);
+export const selectFormData = createSelector(paymentState, state => state.formData);

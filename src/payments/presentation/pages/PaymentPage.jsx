@@ -18,7 +18,7 @@ const PaymentPage = () => {
       <h1>Paymente info</h1>
       <Select title='Select you payment method' onChange={onChageSelect} options={PAYMENT_METHOD_OPTIONS} />
       {
-        !paymentMethod && <CardForm />
+        paymentMethod && <CardForm />
       }
     </div>
   )

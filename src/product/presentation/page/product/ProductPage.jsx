@@ -3,9 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { selectProducts } from '../../../../catalog/application/selectors/productsSelectors';
 import './productPage.scss';
-import { TextInfo } from '../../../../shared/presentation/components/TextInfo/TextInfo';
+import TextInfo from '../../../../shared/presentation/components/TextInfo/TextInfo';
 import { selectedProducts } from '../../../application/selectors/productsSelectedSelectors';
-import { addProduct, setProducts } from '../../../application/slices/productSlice';
+import { addProduct } from '../../../application/slices/productSlice';
 import { getValueFromLocalStorage, setValueToLocalStorage } from '../../../../shared/helpers/helpers';
 import { PRODUCT_SELECTED } from '../../../../shared/helpers/constants';
 import ShowList from '../../../../shared/presentation/components/ShowList/ShowList';

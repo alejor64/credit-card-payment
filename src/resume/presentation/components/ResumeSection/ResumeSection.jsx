@@ -1,7 +1,8 @@
 import React from 'react';
-import './ResumeSection.scss';
+import PropTypes from 'prop-types';
 import ProductDetail from '../ProductDetail/ProductDetail';
 import TotalSection from '../TotalSection/TotalSection';
+import './ResumeSection.scss';
 
 const ResumeSection = ({products}) => {
   return (
@@ -16,6 +17,10 @@ const ResumeSection = ({products}) => {
       <TotalSection products={products} />
     </div>
   )
+};
+
+ResumeSection.propTypes = {
+  products: PropTypes.array.isRequired,
 };
 
 export default ResumeSection;

@@ -36,6 +36,9 @@ import Textarea from '../Textarea/Textarea';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { billingRoute } from '../../../../billing/infrastructure/routes';
+import { removeValueFromLocalStorage, setValueToLocalStorage } from '../../../../shared/helpers/helpers';
+import { FROM_DATA, PRODUCT_SELECTED } from '../../../../shared/helpers/constants';
+import { setFormaData } from '../../../application/slices/paymenthSlice';
 
 const CardForm = () => {
   const [imageValidator, setImageValidator] = useState(cardImage);
@@ -113,19 +116,19 @@ const CardForm = () => {
     }else {
       setErrors(USER_STATE_INPUT);
     }
-    
-    if(!Object.keys(errorInputs).length) {
-      dispatch({
+    const isValid = Object.values(errorInputs).every(value => value === '');
+    if(isValid) {
+      const formData = {
         userName,
         userLastname,
-        userEmail,
-        userPhone,
         address,
-        postalCode,
         city,
         state,
         otherDetails,
-      })
+      };
+      dispatch(setFormaData(formData));
+      setValueToLocalStorage(FROM_DATA, JSON.stringify(formData))
+      removeValueFromLocalStorage(PRODUCT_SELECTED)
       navigate(billingRoute);
     }
   };
@@ -331,7 +334,7 @@ const CardForm = () => {
           </div>
           
           <div className='btn-validate'>
-            <button className='btn' variant="success" type='submit'>Validate</button>
+            <button className='btn' variant="success" type='submit'>Pay</button>
           </div>
         </form>
       </div>

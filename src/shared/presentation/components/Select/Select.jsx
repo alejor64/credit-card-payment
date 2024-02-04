@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Select.scss';
 
 const Select = ({title, options, onChange}) => {
@@ -24,6 +25,12 @@ const Select = ({title, options, onChange}) => {
       </div>
     </div>
   )
+};
+
+Select.propTypes = {
+  title: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Select
