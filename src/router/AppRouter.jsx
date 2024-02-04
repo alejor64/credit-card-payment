@@ -11,6 +11,7 @@ import { resumeRoute } from '../resume/infrastruture/routes';
 import { appRoute, notFound } from './routes';
 import { billingRoute } from '../billing/infrastructure/routes';
 import BillingPage from '../billing/presentation/pages/BillingPage/BillingPage';
+import NotFound from '../notFound/presentation/page/NotFoundPage';
 
 const AppRouter = () => {
   return (
@@ -22,7 +23,7 @@ const AppRouter = () => {
         <Route path={paymentRoute} element={<PaymentPage />} />
         <Route path={billingRoute} element={<BillingPage />} />
         <Route path={appRoute} element={<Navigate to={productsRoute} />} />
-        <Route path={notFound} element={<div>NOT FOUNT</div>} />
+        <Route path={notFound} element={<NotFound />} />
         <Route path="*" element={<Navigate to={notFound} />} />
       </Routes>
     </>
