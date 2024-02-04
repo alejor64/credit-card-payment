@@ -12,7 +12,7 @@ const NotProducts = () => {
   return (
     <div className='not-fount-contianer'>
       <div className='text-info'>
-        <h2 className='title'>You do not have product tio buy yet</h2>
+        <h2 className='title'>You do not have product to buy yet</h2>
         <button className='btn' onClick={goProducts}>Go to products</button>
       </div>
     </div>

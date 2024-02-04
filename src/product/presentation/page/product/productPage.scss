@@ -1,3 +1,5 @@
+@import '../../../../shared/application/theme/colors.scss';
+
 .product-container {
   display: flex;
   gap: 20px;
@@ -24,22 +26,6 @@
           margin: 0;
         }
       }
-      .list-container {
-        display: flex;
-        gap: 5px;
-        label {
-          font-weight: 600;
-        }
-        .list-wrapper {
-          display: flex;
-          gap: 5px;
-          .list {
-            span {
-              text-transform: capitalize;
-            }
-          }
-        }
-      }
     }
     .btn-section {
       display: flex;
@@ -49,28 +35,22 @@
         height: 40px;
         width: 150px;
         border-radius: 4px;
-        border: 1px solid black;
-        &.back {
-          background: #fff;
+        border: 1px solid darken($color: $primary, $amount: 7);
+        &.back, &.purchase {
+          color: $text-color-primary;
+          background: $white;
           &:hover {
-            background: darken($color: #fff, $amount: 7);
+            background: $primary;
             cursor: pointer;
+            color: $text-color-secondary;
           }
         }
         &.buy {
-          background: #385fdc;
+          background: $primary;
           &:hover {
-            background: darken($color: #385fdc, $amount: 5);
+            background: darken($color: $primary, $amount: 5);
             cursor: pointer;
-            color: #fff;
-          }
-        }
-        &.purchase {
-          background: #38dc6f;
-          &:hover {
-            background: darken($color: #38dc6f, $amount: 5);
-            cursor: pointer;
-            color: #fff;
+            color: $text-color-secondary;
           }
         }
       }

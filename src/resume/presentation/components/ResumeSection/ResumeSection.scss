@@ -1,0 +1,12 @@
+.resume-section {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+  .products-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}

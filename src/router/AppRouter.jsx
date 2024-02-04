@@ -11,10 +11,10 @@ const AppRouter = () => {
     <>
       <Navbar />
       <Routes>
-        <Route path='products' element={<CatalogPage />} />
-        <Route path='products/:slug' element={<ProductPage />} />
-        <Route path='resume' element={<ResumePage />} />
-        <Route path='payment' element={<PaymentPage />} />
+        <Route path='/products' element={<CatalogPage />} />
+        <Route path='/products/:slug' element={<ProductPage />} />
+        <Route path='/resume' element={<ResumePage />} />
+        <Route path='/payment' element={<PaymentPage />} />
         <Route path="*" element={<div>NOT FOUNT</div>} />
         <Route path='/' element={<Navigate to='products' />} />
       </Routes>

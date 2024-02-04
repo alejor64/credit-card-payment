@@ -1,3 +1,5 @@
+@import '../../../../shared/application/theme/colors.scss';
+
 .not-fount-contianer {
   width: 90%;
   margin: auto;
@@ -5,12 +7,13 @@
   .text-info {
     .btn {
       padding: 10px;
-      background: #385fdc;
-      color: #fff;
+      background: $primary;
+      border: 1px solid darken($color: $primary, $amount: 10);
+      color: $text-color-primary;
       &:hover {
-        background: darken($color: #385fdc, $amount: 20);
+        background: darken($color: $primary, $amount: 20);
         cursor: pointer;
-        color: #fff;
+        color: $text-color-secondary;
       }
     }
   }

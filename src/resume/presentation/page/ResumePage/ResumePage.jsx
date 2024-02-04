@@ -1,36 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectedProducts } from '../../../../product/application/selectors/productsSelectedSelectors';
-import ProductDetail from '../../components/ProductDetail/ProductDetail';
 import NotProducts from '../../components/NotProducts/NotProducts';
+import { getValueFromLocalStorage } from '../../../../shared/helpers/helpers';
+import { PRODUCT_SELECTED } from '../../../../shared/helpers/constants';
+import ResumeSection from '../../components/ResumeSection/ResumeSection';
+import Loading from '../../../../shared/presentation/components/Loading/Loading';
 import './ResumePage.scss';
+import { setProducts } from '../../../../product/application/slices/productSlice';
 
-const ProductContaner = ({productsToBuy}) => {
+const IsLoadingProducts = ({isLoading}) => {
   return (
-    <div className='resume-section'>
-      <div className='products-container'>
-        {
-          productsToBuy.map(product => (
-            <ProductDetail key={product.slug} product={product} />
-          ))
-        }
-      </div>
-      <div className='price-section'>
-        TOTAL
-      </div>
-    </div>
+    <>
+      {
+        isLoading
+        ? <Loading />
+        : <NotProducts />
+      }
+    </>
   )
 }
 
 const ResumePage = () => {
+  const dispatch = useDispatch();
   const productsToBuy = useSelector(selectedProducts);
+  const [productsSelected, setProductsSelected] = useState([]);
   const [showProducts, setShowProducts] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if(productsToBuy.lenght) {
-      setShowProducts(true);
+    if(!productsToBuy.length) {
+      const productInLS = JSON.parse(getValueFromLocalStorage(PRODUCT_SELECTED));
+      if(productInLS.length) {
+        setProductsSelected(productInLS);
+        dispatch(setProducts(productInLS));
+        setShowProducts(true);
+        setIsLoading(false);
+      }else {
+        setShowProducts(false);
+        setIsLoading(false);
+      }
     }else {
-      setShowProducts(false);
+      setProductsSelected(productsToBuy);
+      setShowProducts(true);
+      setIsLoading(false);
     }
   }, [productsToBuy])
   
@@ -41,9 +54,9 @@ const ResumePage = () => {
         <h1 className='title'>Your products</h1>
       </div>
         {
-          showProducts
-          ? <ProductContaner ProductContaner={ProductContaner} />
-          : <NotProducts />
+          showProducts && !isLoading
+          ? <ResumeSection products={productsSelected} />
+          : <IsLoadingProducts isLoading={isLoading} />
         }
     </div>
   )
