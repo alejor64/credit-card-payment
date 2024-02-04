@@ -10,11 +10,9 @@ const PaymentPage = () => {
   const [paymentMethod, setpaymentMethod] = useState('');
 
   const onChageSelect = (e) => {
-    console.log('Event', e.target.value)
     setpaymentMethod(e.target.value)
   }
 
-  console.log('productsToBuy', productsToBuy);
   return (
     <div>
       <h1>Paymente info</h1>

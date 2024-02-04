@@ -35,3 +35,48 @@ export const CARD_TYPES = [
     maxCardNumberLength: [16]
   }
 ];
+
+export const CARD_NUMBER_INPUT = 'card_number';
+export const CARD_HOLDER_INPUT = 'card_holder';
+export const DATE_EXP_INPUT = 'date';
+export const CV_INPUT = 'code';
+
+export const USER_NAME_INPUT = 'user_name';
+export const USER_LASTNAME_INPUT = 'user_lastname';
+export const USER_EMAIL_INPUT = 'user_email';
+export const USER_MOBILE_INPUT = 'user_mobile';
+export const USER_ADDRESS_INPUT = 'user_address';
+export const USER_POSTAL_CODE_INPUT = 'user_postal_code';
+export const USER_CITY_INPUT = 'user_city';
+export const USER_STATE_INPUT = 'user_state';
+export const USER_OTHER_DETAIL_INPUT = 'other_details';
+
+export const FORM_INPUTS_NAMES = {
+  [CARD_NUMBER_INPUT]: CARD_NUMBER_INPUT,
+  [CARD_HOLDER_INPUT]: CARD_HOLDER_INPUT,
+  [DATE_EXP_INPUT]: DATE_EXP_INPUT,
+  [CV_INPUT]: CV_INPUT,
+  [USER_NAME_INPUT]: USER_NAME_INPUT,
+  [USER_LASTNAME_INPUT]: USER_LASTNAME_INPUT,
+  [USER_EMAIL_INPUT]: USER_EMAIL_INPUT,
+  [USER_MOBILE_INPUT]: USER_MOBILE_INPUT,
+  [USER_ADDRESS_INPUT]: USER_ADDRESS_INPUT,
+  [USER_POSTAL_CODE_INPUT]: USER_POSTAL_CODE_INPUT,
+  [USER_CITY_INPUT]: USER_CITY_INPUT,
+  [USER_STATE_INPUT]: USER_STATE_INPUT,
+  [USER_OTHER_DETAIL_INPUT]: USER_OTHER_DETAIL_INPUT,
+};
+
+export const EMIAL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export const ERROR_CARD_NUMBER_INPUT ='Invalid card number';
+export const ERROR_CARD_HOLDER_INPUT ='Please type card owner name';
+export const ERROR_DATE_EXP_INPUT ='Invalid date';
+export const ERROR_CV_INPUT ='Invalid CV';
+export const ERROR_USER_NAME_INPUT ='Please type your name';
+export const ERROR_USER_LASTNAME_INPUT ='Please type your lastname';
+export const ERROR_USER_EMAIL_INPUT ='Invalid email';
+export const ERROR_USER_MOBILE_INPUT ='Invalid mobile number';
+export const ERROR_USER_ADDRESS_INPUT ='Please type delivery address';
+export const ERROR_USER_CITY_INPUT ='Please type a city';
+export const ERROR_USER_STATE_INPUT ='Please type a state';
