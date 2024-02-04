@@ -5,29 +5,16 @@ import { selectProducts } from '../../../../catalog/application/selectors/produc
 import './productPage.scss';
 import { TextInfo } from '../../../../shared/presentation/components/TextInfo/TextInfo';
 import { selectedProducts } from '../../../application/selectors/productsSelectedSelectors';
-import { addProduct, removeProduct } from '../../../application/slices/productSlice';
-
-const ShowList = ({list, title, className = ''}) => {
-  return (
-    <div className={`list-container ${className}`}>
-      <label>{title}: </label>
-      <div className='list-wrapper'>
-        {
-          list?.map(itm => (
-            <div key={itm} className='list'>
-              <span>{itm}</span>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  )
-}
+import { addProduct, setProducts } from '../../../application/slices/productSlice';
+import { getValueFromLocalStorage, setValueToLocalStorage } from '../../../../shared/helpers/helpers';
+import { PRODUCT_SELECTED } from '../../../../shared/helpers/constants';
+import ShowList from '../../../../shared/presentation/components/ShowList/ShowList';
 
 const ProductPage = () => {
   const [productSelected, setProductSelected] = useState({});
-  const [showRemoveBtn, setShowRemoveBtn] = useState(false);
+  const [purchaseBtn, setPurchaseBtn] = useState(false);
   const { slug } = useParams();
+  const productsInLS = JSON.parse(getValueFromLocalStorage(PRODUCT_SELECTED) || '[]');
   const products = useSelector(selectProducts);
   const productsToBuy = useSelector(selectedProducts);
   const navigate = useNavigate();
@@ -44,9 +31,14 @@ const ProductPage = () => {
   }, [slug, products])
 
   useEffect(() => {
-    const showRemoveItem = productsToBuy.find(product => product.slug === slug);
-    setShowRemoveBtn(!!showRemoveItem);
-  }, [slug, productsToBuy, setShowRemoveBtn])
+    let productSelected;
+    if(productsToBuy.length){
+      productSelected = productsToBuy.find(product => product.slug === slug);
+    }else if(productsInLS.length){
+      productSelected = productsInLS.find(product => product.slug === slug);
+    }
+    setPurchaseBtn(!!productSelected);
+  }, [slug, productsToBuy, setPurchaseBtn])
 
   const goBack = () => {
     navigate(`/products`);
@@ -54,11 +46,12 @@ const ProductPage = () => {
 
   const addItem = () => {
     dispatch(addProduct(productSelected));
+    setValueToLocalStorage(PRODUCT_SELECTED, JSON.stringify([...productsInLS, productSelected]));
   };
-  
-  const removeItem = () => {
-    dispatch(removeProduct(productSelected));
-  };
+
+  const goPurchase = () => {
+    navigate('/resume');
+  }
 
   return (
     <div className='product-container'>
@@ -70,15 +63,16 @@ const ProductPage = () => {
           <h3>{productSelected.name}</h3>
           <TextInfo label={'Price'} text={`$${productSelected.price}`} />
           <ShowList list={productSelected.gender} title={'Gender'} className={'gender'} />
-          <TextInfo label={'Description'} text={productSelected.descriptions} />
+          <TextInfo label={'Description'} text={productSelected.description} />
+          <TextInfo label={'Stoke'} text={productSelected.stoke ? 'Available' : 'No available'} />
         </div>
         <div className='btn-section'>
-          <button className='back' onClick={goBack}>Go back</button>
+          <button className='back' onClick={goBack}>Go to products</button>
           
           {
-            showRemoveBtn
-            ? <button className='remove' onClick={removeItem} >Remove item</button>
-            : <button className='buy' onClick={addItem} >Buy item</button>
+            purchaseBtn
+            ? <button className='purchase' onClick={goPurchase} >Go to purchase</button>
+            : <button className='buy' onClick={addItem} >Add item</button>
           }
         </div>
       </div>

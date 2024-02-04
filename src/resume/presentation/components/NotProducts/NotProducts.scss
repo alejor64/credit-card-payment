@@ -1,0 +1,20 @@
+@import '../../../../shared/application/theme/colors.scss';
+
+.not-fount-contianer {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  .text-info {
+    .btn {
+      padding: 10px;
+      background: $primary;
+      border: 1px solid darken($color: $primary, $amount: 10);
+      color: $text-color-primary;
+      &:hover {
+        background: darken($color: $primary, $amount: 20);
+        cursor: pointer;
+        color: $text-color-secondary;
+      }
+    }
+  }
+}

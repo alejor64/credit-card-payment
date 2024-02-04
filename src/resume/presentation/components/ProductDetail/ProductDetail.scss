@@ -1,0 +1,39 @@
+@import '../../../../shared/application/theme/colors.scss';
+
+.product-section {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid $primary;
+  .product-info {
+    display: flex;
+    width: 50%;
+    max-height: 100px;
+    gap: 20px;
+    .img-container {
+      height: 100%;
+      img {
+        height: 100px;
+        width: 100px;
+      }
+    }
+    .text-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .name {
+        margin: 0;
+      }
+      .info {
+        margin: 0;
+      }
+    }
+  }
+  .price-container {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

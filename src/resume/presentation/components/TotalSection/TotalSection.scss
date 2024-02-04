@@ -1,0 +1,38 @@
+@import '../../../../shared/application/theme/colors.scss';
+
+.price-contianer {
+  width: 35%;
+  border: 1px solid darken($color: $primary, $amount: 10);
+  height: 160px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  .price-section {
+    background: $primary;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+    .price {
+      color: $text-color-primary;
+    }
+  }
+  .finish-section {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn-finish {
+      background: $primary;
+      border: 1px solid darken($color: $primary, $amount: 10);
+      width: 100px;
+      height: 40px;
+      font-size: 18px;
+      color: $text-color-primary;
+      &:hover {
+        background: $white;
+        cursor: pointer;
+      }
+    }
+  }
+}
