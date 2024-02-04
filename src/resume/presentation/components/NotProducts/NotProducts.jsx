@@ -1,13 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NotProducts.scss';
+import { productsRoute } from '../../../../catalog/infrastructure/routes';
 
 const NotProducts = () => {
   const navigate = useNavigate();
 
-  const goProducts = () => {
-    navigate(`/products`);
-  };
+  const goProducts = () => navigate(productsRoute);
 
   return (
     <div className='not-fount-contianer'>

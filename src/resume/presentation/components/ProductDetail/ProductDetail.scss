@@ -11,6 +11,9 @@
     width: 50%;
     max-height: 100px;
     gap: 20px;
+    &:hover {
+      cursor: pointer;
+    }
     .img-container {
       height: 100%;
       img {
