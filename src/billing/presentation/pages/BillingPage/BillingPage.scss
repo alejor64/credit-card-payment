@@ -1,0 +1,30 @@
+@import '../../../../shared/application/theme/colors.scss';
+
+.billing-section {
+  width: 90%;
+  margin: auto;
+  .billing-container {
+    width: 600px;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px #000;
+    .title-container {
+      text-align: center;
+    }
+    .button-section {
+      display: flex;
+      justify-content: center;
+      .btn {
+        padding: 10px;
+        border: 1px solid darken($primary, 10);
+        border-radius: 6px;
+        background: $primary;
+        &:hover {
+          background: $white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

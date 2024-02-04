@@ -1,9 +1,10 @@
 import React from 'react';
-import './ProductCard.scss';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { TextInfo } from '../../../../shared/presentation/components/TextInfo/TextInfo';
+import TextInfo from '../../../../shared/presentation/components/TextInfo/TextInfo';
 import ShowList from '../../../../shared/presentation/components/ShowList/ShowList';
 import { productRoute } from '../../../../product/infrastructure/routes';
+import './ProductCard.scss';
 
 const ProductCard = ({product}) => {
   const navigate = useNavigate();
@@ -21,6 +22,10 @@ const ProductCard = ({product}) => {
       </div>
     </div>
   )
-}
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.object,
+};
 
 export default ProductCard;

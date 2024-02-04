@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './TotalSection.scss';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { productsRoute } from '../../../../catalog/infrastructure/routes';
+import { paymentRoute } from '../../../../payments/infrastructure/routes';
+import './TotalSection.scss';
 
 const TotalSection = ({products}) => {
   const [price, setPrice] = useState(0);
@@ -12,7 +14,7 @@ const TotalSection = ({products}) => {
     setPrice(total);
   }, [products, setPrice])
 
-  const goProducts = () => navigate(productsRoute);;
+  const navigateTo = (route) => navigate(route);;
   
   return (
     <div className='price-contianer'>
@@ -20,11 +22,15 @@ const TotalSection = ({products}) => {
         <p className='price'>Total: <span>${price}</span></p>
       </div>
       <div className='finish-section'>
-        <button className='btn'>Finish</button>
-        <button className='btn' onClick={goProducts}>Got to products</button>
+        <button className='btn' onClick={() => navigateTo(paymentRoute)}>Finish</button>
+        <button className='btn' onClick={() => navigateTo(productsRoute)}>Got to products</button>
       </div>
     </div>
   )
+};
+
+TotalSection.propTypes = {
+  product: PropTypes.array,
 };
 
 export default TotalSection;

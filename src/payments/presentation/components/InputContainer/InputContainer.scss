@@ -1,0 +1,25 @@
+@import '../../../../shared/application/theme/colors.scss';
+
+.input-contianer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 10px auto;
+  gap: 3px;
+  input {
+    padding: 10px 5px;
+    border-radius: 7px;
+    border: 1px solid $primary;
+    &:focus-visible {
+      border: 1px solid darken($primary, 10);
+    }
+  }
+  .error-container {
+    width: 95%;
+    margin: auto;
+    .error {
+      color: $text-color-error;
+      font-size: 13px;
+    }
+  }
+}
