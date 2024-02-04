@@ -176,11 +176,12 @@ const CardForm = () => {
 
   const onChangeExp = (e) => {
     let {value} = e.target;
+    value = value.replace(/\D/g, '');
     const expDateFormatter =
       value.replace(/\//g, "").substring(0, 2) +
       (value.length > 2 ? "/" : "") +
       value.replace(/\//g, "").substring(2, 4);
-      setExpdate(expDateFormatter);
+    setExpdate(expDateFormatter);
   };
 
   const handleCode = (event, length, setNumber) => {
@@ -193,7 +194,7 @@ const CardForm = () => {
   };
   
   return(
-    <div className="form-section">
+    <div>
       <div className='form-container'>
         <form className='form' onSubmit={handleValidate}>
           <div className='form-section card-info'>
