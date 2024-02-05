@@ -3,7 +3,7 @@
 ## Description
 This application showcases the behavior of a clothing e-commerce, allowing users to select various products for purchase. It displays a summary of the selected products and simulates a purchase. Additionally, the application features a credit card validator in the payment view and provides a transaction summary.
 
-In conclusion, the application is built with React and Vite. You can check the demo version [here]('https://master.d341xrrz9zbenv.amplifyapp.com/products').
+In conclusion, the application is built with React and Vite. You can check the demo version [here](https://master.d341xrrz9zbenv.amplifyapp.com/products).
 
 ## Prerequisites
 Make sure you have Node.js and npm installed on your machine before running the application.
