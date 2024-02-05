@@ -46,11 +46,19 @@
   .product-section {
     justify-content: space-between;
     .product-info {
-      width: 60%;
+      width: 70%;
       .text-info {
-        .info {
-          font-size: 14px;
+        .name {
+          font-size: 13px;
         }
+        .info {
+          font-size: 12px;
+        }
+      }
+    }
+    .price-container {
+      p {
+        font-size: 13px;
       }
     }
   }

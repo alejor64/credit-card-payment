@@ -65,6 +65,9 @@
       .form-section {
         .double-input {
           width: 80%;
+          > .input-contianer {
+            width: 50%;
+          }
         }
       }
       .btn-validate {
