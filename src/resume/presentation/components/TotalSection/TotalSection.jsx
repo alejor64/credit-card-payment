@@ -17,7 +17,7 @@ const TotalSection = ({products}) => {
   const navigateTo = (route) => navigate(route);;
   
   return (
-    <div className='price-contianer'>
+    <div className='total-price-contianer'>
       <div className='price-section'>
         <p className='price'>Total: <span>${price}</span></p>
       </div>
